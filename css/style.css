@@ -95,6 +95,7 @@ body {
   background-position: top;
   background-size: cover;
   position: relative;
+  -webkit-clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%);
   clip-path: polygon(0 0, 100% 0, 100% 75vh, 0 100%); }
   .header__logo-box {
     position: absolute;
@@ -120,19 +121,19 @@ body {
   .row [class^="col-"] {
     float: left; }
     .row [class^="col-"]:not(:last-child) {
-      margin-right: 2rem; }
+      margin-right: 6rem; }
   .row .col-1-of-2 {
-    width: calc((100% - 2rem) / 2); }
+    width: calc((100% - 6rem) / 2); }
   .row .col-1-of-3 {
-    width: calc((114rem - 2 * 2rem) / 3); }
+    width: calc((114rem - 2 * 6rem) / 3); }
   .row .col-1-of-4 {
-    width: calc((114rem - 3 * 2rem) / 4); }
+    width: calc((114rem - 3 * 6rem) / 4); }
   .row .col-2-of-3 {
-    width: calc((100% - 2 * 2rem) / 3 * 2 + 2rem); }
+    width: calc((100% - 2 * 6rem) / 3 * 2 + 6rem); }
   .row .col-2-of-4 {
-    width: calc((100% - 3 * 2rem) / 4 * 2 + 2rem); }
+    width: calc((100% - 3 * 6rem) / 4 * 2 + 6rem); }
   .row .col-3-of-4 {
-    width: calc(3 * (100% - 3 * 2rem) / 4 + 2 * 2rem); }
+    width: calc(3 * (100% - 3 * 6rem) / 4 + 2 * 6rem); }
   .row:not(:last-child) {
     margin-bottom: 4rem; }
 
@@ -140,6 +141,20 @@ body {
   background-color: #f7f7f7;
   padding: 25rem 0;
   margin-top: -20vh; }
+
+.section-features {
+  padding: 20rem 0;
+  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.8), rgba(40, 180, 133, 0.8)), url("../img/nat-4.jpg");
+  background-size: cover;
+  transform: skewY(-5deg);
+  margin-top: -6rem; }
+  .section-features > * {
+    transform: skewY(5deg); }
+
+.section-tours {
+  margin-top: -7rem;
+  padding: 20rem 10rem;
+  background-color: #f7f7f7; }
 
 .btn:link, .btn:visited {
   text-transform: uppercase;
@@ -229,6 +244,112 @@ body {
       outline: 1.5rem solid #55c57a; }
   .composition:hover .composition__photo:not(:hover) {
     transform: scale(0.95); }
+
+.feature-box {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 2.5rem;
+  text-align: center;
+  font-size: 1.5rem;
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  transition: all .2s; }
+  .feature-box__icon {
+    font-size: 6rem;
+    margin-bottom: .5rem;
+    display: inline-block;
+    background-image: linear-gradient(to right, #7ed56f, #28b485);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent; }
+  .feature-box:hover {
+    transform: scale(1.05) translateY(-1rem);
+    box-shadow: 0 2.5rem 4rem rgba(0, 0, 0, 0.25); }
+
+.card {
+  height: 52rem;
+  perspective: 150rem;
+  -moz-perspective: 150rem;
+  position: relative; }
+  .card__side {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 52rem;
+    width: 100%;
+    transition: all .7s ease;
+    backface-visibility: hidden;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15); }
+    .card__side--front {
+      color: #fff; }
+    .card__side--back {
+      padding: 10%;
+      transform: rotateY(180deg); }
+      .card__side--back .card__cta {
+        text-align: center; }
+        .card__side--back .card__cta .card__price-box {
+          color: #fff;
+          margin: 30% 0 50% 0; }
+          .card__side--back .card__cta .card__price-box .card__price-only {
+            font-size: 1.6rem; }
+          .card__side--back .card__cta .card__price-box .card__price-value {
+            font-size: 5rem;
+            font-weight: 100; }
+      .card__side--back-1 {
+        background-image: linear-gradient(to right bottom, #ffb900, #ff7730); }
+      .card__side--back-2 {
+        background-image: linear-gradient(to right bottom, #7ed56f, #28b485); }
+      .card__side--back-3 {
+        background-image: linear-gradient(to right bottom, #2998ff, #5643fa); }
+  .card:hover .card__side--front {
+    transform: rotateY(-180deg); }
+  .card:hover .card__side--back {
+    transform: rotateY(0deg); }
+  .card__img {
+    height: 45%;
+    background-size: cover;
+    background-blend-mode: screen;
+    -webkit-clip-path: polygon(0 0, 100% 0, 100% 89%, 0 100%);
+    clip-path: polygon(0 0, 100% 0, 100% 89%, 0 100%); }
+    .card__img-1 {
+      background-image: linear-gradient(to right bottom, #ffb900, #ff7730), url("../img/nat-5.jpg"); }
+    .card__img-2 {
+      background-image: linear-gradient(to right bottom, #7ed56f, #28b485), url("../img/nat-6.jpg"); }
+    .card__img-3 {
+      background-image: linear-gradient(to right bottom, #2998ff, #5643fa), url("../img/nat-7.jpg"); }
+  .card__heading {
+    text-align: right;
+    font-size: 2.8rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    position: absolute;
+    top: 12rem;
+    right: 2rem;
+    width: 70%; }
+  .card__heading__span {
+    padding: 1rem 1.5rem;
+    -webkit-box-decoration-break: clone;
+    box-decoration-break: clone; }
+    .card__heading__span-1 {
+      background-image: linear-gradient(to right bottom, rgba(255, 185, 0, 0.85), rgba(255, 119, 48, 0.85)); }
+    .card__heading__span-2 {
+      background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.85), rgba(40, 180, 133, 0.85)); }
+    .card__heading__span-3 {
+      background-image: linear-gradient(to right bottom, rgba(41, 152, 255, 0.85), rgba(86, 67, 250, 0.85)); }
+  .card__details {
+    padding: 3rem; }
+    .card__details ul {
+      list-style: none;
+      width: 80%;
+      margin: 0 auto; }
+      .card__details ul li {
+        padding: 1rem;
+        font-size: 1.5rem;
+        color: #777;
+        text-align: center; }
+        .card__details ul li:not(:last-child) {
+          border-bottom: 1px solid #eee; }
 
 *,
 *::before,
